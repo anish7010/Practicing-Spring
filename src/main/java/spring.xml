@@ -5,37 +5,33 @@
 
 	<!-- fully qualified name -->
 
-	<bean id="triangle" class="com.example.demo.Triangle">
-		<property name="points">
+	<bean id="parentTriangle" class="com.example.demo.Triangle">
+		<property name="l1">
 			<list>
 				<ref bean="pointA"></ref>
-				<ref bean="pointB"></ref>
-				<ref bean="pointC"></ref>
-			</list>
-		</property>
-		<property name="numbers">
-			<list>
-					<value>1</value>
-					<value>2</value>
-					<value>3</value>
-					<value>4</value>
 			</list>
 		</property>
 	</bean>
 
+	<bean id="triangle" class="com.example.demo.Triangle" parent="parentTriangle"
+		init-method="init" destroy-method="destroy">
+		<property name="l1">
+			<list merge="true">
+				<ref bean="pointB"></ref>
+			</list>
+		</property>
+	</bean>
+
+
 	<bean id="pointA" class="com.example.demo.Point">
-		<property name="x" value="10"></property>
-		<property name="y" value="8"></property>
+		<property name="x" value="2"></property>
+		<property name="y" value="12"></property>
 	</bean>
 
 	<bean id="pointB" class="com.example.demo.Point">
-		<property name="x" value="7"></property>
-		<property name="y" value="15"></property>
+		<property name="x" value="3"></property>
+		<property name="y" value="13"></property>
 	</bean>
 
-	<bean id="pointC" class="com.example.demo.Point">
-		<property name="x" value="3"></property>
-		<property name="y" value="20"></property>
-	</bean>
 
 </beans>

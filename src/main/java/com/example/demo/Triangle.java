@@ -3,31 +3,50 @@ package com.example.demo;
 import java.util.List;
 
 public class Triangle {
-	private List<Point> points;
-	private List<Integer> numbers;
-
-	public List<Point> getPoints() {
-		return points;
-	}
-
-	public void setPoints(List<Point> points) {
-		this.points = points;
-	}
-	
-
-  public List<Integer> getNumbers() {
-    return numbers;
+  List<Point> l1;
+  Point pointA;
+  Point pointB;
+  
+  public Point getPointA() {
+    return pointA;
   }
 
-  public void setNumbers(List<Integer> numbers) {
-    this.numbers = numbers;
+  public void setPointA(Point pointA) {
+    this.pointA = pointA;
+  }
+
+  public Point getPointB() {
+    return pointB;
+  }
+
+  public void setPointB(Point pointB) {
+    this.pointB = pointB;
+  }
+ 
+  public List<Point> getL1() {
+    return l1;
+  }
+
+  public void setL1(List<Point> l1) {
+    this.l1 = l1;
   }
   
   public void display() {
-    for(Point p : points)
-      System.out.println("("+p.getX()+","+p.getY()+")");
+    System.out.println(pointA.getX()+","+pointA.getY());
+    System.out.println(pointB.getX()+","+pointB.getY());
+  }
+  
+  public void displayList() {
+    for(Point p : l1)
+      System.out.println(p.getX()+","+p.getY());
+  }
+  
+  public void init() {
+    System.out.println("Bean has been initialised");
+  }
+  
+  public void destroy() {
+    System.out.println("Bean has been destroyed");
   }
   
 }
-
-
